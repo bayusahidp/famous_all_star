@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FrontEndController@index')->name('front');
+
+// Route::get('/admin', 'FrontEndController@index')->name('front');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
