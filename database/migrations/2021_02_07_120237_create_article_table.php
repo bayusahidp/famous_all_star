@@ -21,6 +21,7 @@ class CreateArticleTable extends Migration
             $table->string('short_description');
             $table->longText('content');
             $table->string('image');
+            $table->string('thumbnail');
 
             $table->timestamps();
             $table->softDeletes();

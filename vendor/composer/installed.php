@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '05109ced277e6d950f1600d49d380e503f488d60',
+    'reference' => 'e369f9b3e9fea11dee4d8a7c5b822362cb0dd78a',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -399,6 +399,16 @@
         0 => 'v7.30.4',
       ),
     ),
+    'intervention/image' => 
+    array (
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+        0 => '2.4.x-dev',
+      ),
+      'reference' => '032263954ca2a5258fb5fe7492962c1a16ca9f3c',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -422,7 +432,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => '05109ced277e6d950f1600d49d380e503f488d60',
+      'reference' => 'e369f9b3e9fea11dee4d8a7c5b822362cb0dd78a',
+    ),
+    'laravel/socialite' => 
+    array (
+      'pretty_version' => 'v5.1.3',
+      'version' => '5.1.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2e6beafe911a09f2300353c102d882e9d63f1f72',
     ),
     'laravel/tinker' => 
     array (
@@ -468,6 +487,15 @@
       array (
       ),
       'reference' => '3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3',
+    ),
+    'league/oauth1-client' => 
+    array (
+      'pretty_version' => 'v1.9.0',
+      'version' => '1.9.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1e7e6be2dc543bf466236fb171e5b20e1b06aee6',
     ),
     'mockery/mockery' => 
     array (

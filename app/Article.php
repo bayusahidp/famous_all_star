@@ -12,7 +12,7 @@ class Article extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'id_categories', 'title', 'slug', 'short_description', 'content', 'image'
+        'categories_id', 'title', 'slug', 'short_description', 'content', 'image', 'thumbnail'
     ];
 
     protected $hidden = [

@@ -25,6 +25,10 @@
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 
 <script type="text/javascript">
+	// Confirmation Delete
+	$('.confirmation').on('click', function () {
+			return confirm('Are you sure?');
+		});
 	$(document).ready(function() {
 		$('.ckeditor').summernote()
 	    $('.ckeditora').summernote()
@@ -34,3 +38,4 @@
 	    $('.ckeditor1').summernote()
 	});
 </script>
+	

@@ -13,10 +13,25 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('auth/google', 'Auth\GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
+
+Route::get('/changePassword','HomeController@showChangePasswordForm');
+Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
 
 Route::get('/', 'FrontEndController@index')->name('front');
 
 // Route::get('/admin', 'FrontEndController@index')->name('front');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('admin', 'AdminController');
+
+Route::resource('user', 'UserController');
+
+Route::resource('categories', 'CategoriesController');
+
+Route::resource('article', 'ArticleController');
