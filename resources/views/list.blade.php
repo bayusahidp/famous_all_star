@@ -16,13 +16,13 @@
 					<div class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href={{ url('/') }}>Famous All Star Article</a></h1>
+							<h1 id="logo"><a href={{ url('/') }}>{{ $category->name }}</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="active"><a class="icon solid fa-home" href={{ url('/') }}><span>Article</span></a></li>
-									<li>
+									<li><a class="icon solid fa-home" href={{ url('/') }}><span>Article</span></a></li>
+									<li class="active">
 										<a href="#" class="icon fa-chart-bar"><span>Categories</span></a>
 										<ul>
 											@foreach ($categories as $item)
@@ -50,7 +50,7 @@
 										</a>
 										<div class="blogTxt">
 											<div class="blogCategory">
-												<a href="{{ route('showCategory', $item->categories_slug) }}">{{ $item->categories_name }}</a>
+												<a href="/">{{ $category->name }}</a>
 											</div>
 											<a href="{{ route('detail', $item->slug) }}">
 												<h2 style="color: black;">{{ $item->title }}</h2>

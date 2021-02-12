@@ -57,10 +57,12 @@ class AdminController extends Controller
     public function show($id)
     {
         $article = Article::where('slug', $id)->first();
-        $article_serupa = Article::where('categories_id', $article->categories_id)->where('id', '!=', $id)->get();
+        $article_serupa = Article::where('categories_id', $article->categories_id)->where('id', '!=', $article->id)->get();
+        $categories = Categories::findOrFail($article->categories_id);
         return view('pages.home.show')->with([
             'article' => $article,
-            'article_serupa' => $article_serupa
+            'article_serupa' => $article_serupa,
+            'categories' => $categories
         ]);
     }
 

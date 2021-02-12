@@ -12,61 +12,72 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<section id="header">
+			<section id="header">
+				<div class="container">
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a class="icon solid fa-home" href={{ url('/') }}><span>Article</span></a></li>
+								<li>
+									<a href="#" class="icon fa-chart-bar"><span>Categories</span></a>
+									<ul>
+										@foreach ($categories as $item)
+											<li><a href="#">{{ $item->name }}</a></li>
+										@endforeach
+									</ul>
+								</li>
+							</ul>
+						</nav>
+
+				</div>
+			</section>
+
+			<!-- Main -->
+				<section id="main">
 					<div class="container">
+						<div class="row">
 
-						<!-- Logo -->
-							<h1 id="logo"><a href={{ url('/') }}>Famous All Star Article</a></h1>
+							<!-- Content -->
+								<div id="content" class="col-8 col-12-medium">
 
-						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li class="active"><a class="icon solid fa-home" href={{ url('/') }}><span>Article</span></a></li>
-									<li>
-										<a href="#" class="icon fa-chart-bar"><span>Categories</span></a>
-										<ul>
-											@foreach ($categories as $item)
-												<li><a href="{{ route('showCategory', $item->slug) }}">{{ $item->name }}</a></li>
-											@endforeach
-										</ul>
-									</li>
-								</ul>
-							</nav>
+									<!-- Post -->
+										<article class="box post">
+											<header>
+												<h2><a href="#">{{ $article->title }}</a></h2>
+											</header>
+											<a href="#" class="image featured"><img src="{{ asset("image/$article->image") }}" alt="" /></a>
+											<h3>{{ $article->short_description }}</h3><br>
+											{!! $article->content !!}
+										</article>
 
-					</div>
-				</section>
-
-			<!-- Features -->
-				<section id="features">
-					<div class="container">
-						<div class="interior container clearfix">
-							<div class="row">
-
-								@foreach ($article as $item)
-								<div class="col-xs-12 col-sm-6 col-md-4 blogBox moreBox" style="display: none;">
-									<div class="item">
-										<a href="{{ route('detail', $item->slug) }}">
-											<img src="{{ asset("image/$item->image") }}">
-										</a>
-										<div class="blogTxt">
-											<div class="blogCategory">
-												<a href="{{ route('showCategory', $item->categories_slug) }}">{{ $item->categories_name }}</a>
-											</div>
-											<a href="{{ route('detail', $item->slug) }}">
-												<h2 style="color: black;">{{ $item->title }}</h2>
-											</a>
-											<p class="post_intro hidden-xs">{{ $item->short_description }}</p>
-										</div>
-									</div>
 								</div>
-									
-								@endforeach
 
-								
-								<div id="loadMore" style="">
-									<a href="#">Load More</a>
+							<!-- Sidebar -->
+								<div id="sidebar" class="col-4 col-12-medium">
+
+									<!-- Excerpts -->
+										<section>
+											<ul class="divided">
+
+												@forelse ($article_serupa as $item)
+												<li>
+													<!-- Excerpt -->
+													<article class="box excerpt">
+														<header>
+															<span class="date">{{ date('M Y', strtotime($item->created_at)) }}</span>
+															<h3><a href="{{ route('detail', $item->slug) }}">{{ $item->title }}</a></h3>
+														</header>
+														{{ $item->short_description }}
+													</article>
+												</li>
+												@empty
+													
+												@endforelse
+											</ul>
+										</section>
+
 								</div>
-							</div>
+
 						</div>
 					</div>
 				</section>

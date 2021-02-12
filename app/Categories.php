@@ -18,4 +18,9 @@ class Categories extends Model
     protected $hidden = [
 
     ];
+
+    public function article()
+    {
+        return $this->hasMany(Article::class, 'categories_id');
+    }
 }

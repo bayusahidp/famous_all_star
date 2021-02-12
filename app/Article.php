@@ -18,4 +18,9 @@ class Article extends Model
     protected $hidden = [
 
     ];
+
+    public function categories()
+    {
+        return $this->belongsTo(Categories::class, 'categories_id', 'id');
+    }
 }

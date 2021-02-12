@@ -16,7 +16,7 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Tgl Register</th>
-                                    <th>Action</th>
+                                    <th>From</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -29,16 +29,7 @@
                                         <td>{{ $item->email }}</td>
                                         <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <form action="#" method="POST" class="d-inline">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </form>
+                                            {{ ($item->google_id != null) ? "Google Account" : "Famous Account" }}
                                         </td>
                                     </tr>
                                 @empty
@@ -70,7 +61,7 @@
             "order":[],
             "columnDefs": [
                 { 
-                    "targets": [0,4], 
+                    "targets": [-1,4], 
                     "orderable": false, 
                 },
             ],

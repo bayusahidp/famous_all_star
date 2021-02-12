@@ -62,7 +62,7 @@ class CategoriesController extends Controller
 
         Categories::create($data);
 
-        return redirect()->route('categories.index')->with('success', 'Data Berhasil Dibuat');;
+        return redirect()->route('categories.index')->with('success', 'Data Berhasil Dibuat');
     }
 
     /**

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 use App\Http\Requests\ArticleRequest;
+use Illuminate\Support\Facades\Validator;
 
 use App\Article;
 use App\Categories;
@@ -55,9 +56,6 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request)
     {
         $data = $request->all();
-        // $data['image'] = $request->file('image')->store(
-        //     'image', 'public'
-        // );
 
         $image = $request->file('image');
         $input['image'] = time().'.'.$image->extension();
@@ -80,12 +78,12 @@ class ArticleController extends Controller
             'short_description' => $request->short_description,
             'content' => $request->content,
             'image' => $input['image'],
-            'thumbnail' => $$input['image']
+            'thumbnail' => $input['image']
         ]);
 
         // Article::create($data);
  
-        return redirect()->route('article.index');
+        return redirect()->route('article.index')->with('success', 'Data Berhasil Dibuat');
     }
 
     /**
