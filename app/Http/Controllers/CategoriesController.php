@@ -100,6 +100,7 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
         $item = Categories::findOrFail($id);
         $item->update($data);
         
